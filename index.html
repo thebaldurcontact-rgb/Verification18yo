@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Conteúdo exclusivo da Nina Nowicka no Telegram">
+    <title>Nina Nowicka</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="verified.png">
+    <link rel="shortcut icon" type="image/png" href="verified.png">
+    
+    <!-- Fonte personalizada - Inter (mais profissional) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(200, 220, 240, 0.3), transparent);
+            border-radius: 50%;
+            top: -200px;
+            right: -200px;
+            animation: float 20s infinite alternate;
+        }
+
+        body::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(220, 240, 255, 0.25), transparent);
+            border-radius: 50%;
+            bottom: -150px;
+            left: -150px;
+            animation: float 15s infinite alternate-reverse;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+            100% {
+                transform: translate(50px, 50px) scale(1.1);
+            }
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 20px;
+            max-width: 550px;
+            width: 90%;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(30px);
+            border-radius: 32px;
+            padding: 60px 45px;
+            box-shadow: 
+                0 25px 50px -12px rgba(0, 0, 0, 0.15),
+                0 0 0 1px rgba(255, 255, 255, 0.8) inset,
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.9);
+            animation: slideUp 0.8s ease-out;
+            border: 1px solid rgba(220, 230, 245, 0.5);
+            position: relative;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+            border-radius: 32px 32px 0 0;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .image-container {
+            position: relative;
+            margin-bottom: 40px;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.12),
+                0 0 0 1px rgba(0, 0, 0, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            max-height: 500px;
+        }
+
+        .image-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.15),
+                0 0 0 1px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+        }
+
+        .model-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 24px;
+        }
+
+        .name-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: #1a202c;
+            font-size: 38px;
+            font-weight: 700;
+            letter-spacing: -0.6px;
+            margin: 0;
+        }
+
+        .verified-badge {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #1DA1F2 0%, #1a91da 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            animation: badgeEntrance 1.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+            box-shadow: 
+                0 6px 18px rgba(29, 161, 242, 0.22),
+                inset 0 1px 2px rgba(255, 255, 255, 0.28),
+                inset 0 -2px 4px rgba(0, 0, 0, 0.06),
+                0 0 0 1px rgba(29, 161, 242, 0.45);
+            font-weight: 700;
+            line-height: 1;
+            position: relative;
+            overflow: visible;
+            font-size: 28px;
+            z-index: 1; /* keep check above animated border */
+        }
+
+        /* subtle shimmer/glow already present */
+        .verified-badge::before {
+            content: '';
+            position: absolute;
+            width: 160%;
+            height: 160%;
+            left: -30%;
+            top: -30%;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 30%, rgba(255,255,255,0.28), rgba(255,255,255,0.06) 25%, transparent 45%);
+            pointer-events: none;
+            transform: scale(0.98);
+            opacity: 0.0;
+            animation: badgeGlow 4.5s ease-in-out infinite;
+            z-index: 2; /* glow sits above rotating ring but under the check text */
+        }
+
+        /* animated ring that rotates very slowly */
+        .verified-badge::after {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            /* conic gradient for a subtle moving color sweep */
+            background: conic-gradient(from 0deg, rgba(26,148,214,0.06), rgba(29,161,242,0.12), rgba(13,141,218,0.18), rgba(29,161,242,0.12));
+            /* mask the center so only the ring is visible */
+            -webkit-mask: radial-gradient(circle, transparent 66%, black 67%);
+            mask: radial-gradient(circle, transparent 66%, black 67%);
+            pointer-events: none;
+            z-index: 0;
+            transform-origin: 50% 50%;
+            animation: verifiedRingRotate 7.5s linear infinite;
+            filter: blur(0.4px); /* soften the ring */
+            opacity: 0.95;
+        }
+
+        @keyframes verifiedRingRotate {
+            from { transform: rotate(0deg); }
+            to   { transform: rotate(360deg); }
+        }
+
+        /* keep entrance and glow animations slightly slower / smoother */
+        @keyframes badgeEntrance {
+            0% {
+                transform: scale(0.7) translateY(6px) rotate(-8deg);
+                opacity: 0;
+                filter: blur(5px);
+            }
+            60% {
+                transform: scale(1.02) translateY(-1px) rotate(2deg);
+                opacity: 1;
+                filter: blur(0);
+            }
+            100% {
+                transform: scale(1) translateY(0) rotate(0deg);
+                opacity: 1;
+                filter: none;
+            }
+        }
+
+        @keyframes badgeGlow {
+            0% { opacity: 0.06; transform: scale(0.98); }
+            50% { opacity: 0.22; transform: scale(1.03); }
+            100% { opacity: 0.06; transform: scale(0.98); }
+        }
+
+        .age-question {
+            font-size: 26px;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 35px;
+            letter-spacing: -0.2px;
+            line-height: 1.5;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: linear-gradient(135deg, #1DA1F2 0%, #1a91da 100%);
+            color: white;
+            padding: 18px 52px;
+            font-size: 19px;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 12px;
+            box-shadow: 
+                0 12px 24px rgba(29, 161, 242, 0.35),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2),
+                0 0 0 1px rgba(29, 161, 242, 0.3);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 0.5px;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        .telegram-icon {
+            width: 44px;
+            height: 44px;
+            flex-shrink: 0;
+            margin-left: -10px;
+            display: block;
+            border-radius: 50%;
+            background: #ffffff;
+            padding: 2px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+            object-fit: contain;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.6s ease;
+            z-index: 0;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 
+                0 16px 32px rgba(29, 161, 242, 0.45),
+                inset 0 1px 0 rgba(255, 255, 255, 0.25),
+                0 0 0 1px rgba(29, 161, 242, 0.4);
+            background: linear-gradient(135deg, #0d8dda 0%, #0a7ec7 100%);
+        }
+
+        .cta-button:active {
+            transform: translateY(0);
+        }
+
+        .cta-button.pulse {
+            animation: buttonPulse 2.5s ease-in-out infinite;
+        }
+
+        @keyframes buttonPulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 
+                    0 12px 24px rgba(29, 161, 242, 0.35),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+                    0 0 0 1px rgba(29, 161, 242, 0.3);
+            }
+            50% {
+                transform: scale(1.03);
+                box-shadow: 
+                    0 18px 36px rgba(29, 161, 242, 0.5),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+                    0 0 0 2px rgba(29, 161, 242, 0.6);
+            }
+        }
+
+        .redirect-info {
+            margin-top: 12px;
+            font-size: 13px;
+            color: #1DA1F2;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        .warning {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #718096;
+            line-height: 1.6;
+            font-weight: 500;
+            letter-spacing: 0.2px;
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #1DA1F2;
+            border-radius: 50%;
+            opacity: 0;
+            animation: sparkle 3s infinite;
+            box-shadow: 0 0 4px rgba(29, 161, 242, 0.6);
+        }
+
+        @keyframes sparkle {
+            0%, 100% {
+                opacity: 0;
+                transform: scale(0);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .sparkle:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .sparkle:nth-child(2) {
+            top: 40%;
+            right: 15%;
+            animation-delay: 1s;
+        }
+
+        .sparkle:nth-child(3) {
+            bottom: 30%;
+            left: 20%;
+            animation-delay: 2s;
+        }
+
+        .sparkle:nth-child(4) {
+            bottom: 20%;
+            right: 10%;
+            animation-delay: 1.5s;
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                padding: 40px 25px;
+                border-radius: 28px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            .verified-badge {
+                width: 36px;
+                height: 36px;
+                font-size: 18px;
+            }
+            
+            .age-question {
+                font-size: 16px;
+            }
+            
+            .cta-button {
+                padding: 14px 40px;
+                font-size: 15px;
+                gap: 10px;
+            }
+
+            .telegram-icon {
+                width: 20px;
+                height: 20px;
+            }
+
+            .image-container {
+                border-radius: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sparkle"></div>
+    <div class="sparkle"></div>
+    <div class="sparkle"></div>
+    <div class="sparkle"></div>
+
+    <div class="container">
+        <div class="card">
+            <div class="image-container">
+                <img src="nina.jpg" 
+                     alt="Nina Nowicka" 
+                     class="model-image">
+            </div>
+
+            <div class="name-container">
+                <h1>Nina Nowicka</h1>
+                <div class="verified-badge">✓</div>
+            </div>
+
+            <p class="age-question">🔞 Você tem mais de 18 anos?</p>
+
+            <a href="https://t.me/NinaNowicka_bot" class="cta-button pulse" target="_blank">
+                <img src="telegram.png" alt="Telegram" class="telegram-icon">
+                SIM, TENHO MAIS DE 18!
+            </a>
+
+            <p class="redirect-info">
+                Você será redirecionado ao Telegram
+            </p>
+
+            <p class="warning">
+                ⚠️ Conteúdo exclusivo para +18 anos. ⚠️
+            </p>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('.cta-button').addEventListener('click', function() {
+            console.log('Botão clicado - Redirecionando para Telegram');
+        });
+    </script>
+</body>
+</html>
