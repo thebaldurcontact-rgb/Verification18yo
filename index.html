@@ -26,6 +26,7 @@
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             min-height: 100vh;
+            max-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -36,24 +37,24 @@
         body::before {
             content: '';
             position: absolute;
-            width: 500px;
-            height: 500px;
+            width: 0px;
+            height: 0px;
             background: radial-gradient(circle, rgba(200, 220, 240, 0.3), transparent);
             border-radius: 50%;
-            top: -200px;
-            right: -200px;
+            top: 0px;
+            right: 0px;
             animation: float 20s infinite alternate;
         }
 
         body::after {
             content: '';
             position: absolute;
-            width: 400px;
-            height: 400px;
+            width: 0px;
+            height: 0px;
             background: radial-gradient(circle, rgba(220, 240, 255, 0.25), transparent);
             border-radius: 50%;
-            bottom: -150px;
-            left: -150px;
+            bottom: 0px;
+            left: 0px;
             animation: float 15s infinite alternate-reverse;
         }
 
@@ -75,6 +76,7 @@
             width: 100%;
             margin: 0 auto;
             min-height: 100vh;
+            max-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -250,7 +252,7 @@
         }
 
         .age-question {
-            font-size: 26px;
+            font-size: 22px;
             font-weight: 600;
             color: #2d3748;
             margin-bottom: 32px;
@@ -287,7 +289,7 @@
             width: 44px;
             height: 44px;
             flex-shrink: 0;
-            margin-left: -10px;
+            margin-left: -15px;
             display: block;
             border-radius: 50%;
             background: #ffffff;
@@ -432,18 +434,18 @@
             }
             
             .age-question {
-                font-size: 16px;
+                font-size: 20px;
             }
             
             .cta-button {
-                padding: 14px 40px;
-                font-size: 15px;
+                padding: 14px 30px;
+                font-size: 16px;
                 gap: 10px;
             }
 
             .telegram-icon {
-                width: 20px;
-                height: 20px;
+                width: 30px;
+                height: 30px;
             }
 
             .image-container {
@@ -475,7 +477,7 @@
 
             <a href="https://t.me/NinaNowicka_bot" class="cta-button pulse" target="_blank">
                 <img src="telegram.png" alt="Telegram" class="telegram-icon">
-                SIM, TENHO MAIS DE 18!
+                SIM, SOU MAIOR DE 18!
             </a>
 
             <p class="redirect-info">
